@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/add_item"
+        android:icon="@drawable/add"
+        android:title="@string/add_menu"
+        app:showAsAction="withText|ifRoom"
+        />
+    <item android:id="@+id/remove"
+        android:icon="@drawable/remove"
+        android:title="@string/remove"
+        />
+    <item android:title="More">
+        <menu>
+            <item android:title="K"/>
+            <item android:title="G"/>
+        </menu>
+
+    </item>
+</menu>
