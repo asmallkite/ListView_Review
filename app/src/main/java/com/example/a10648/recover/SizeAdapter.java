@@ -24,11 +24,25 @@ public class SizeAdapter extends ArrayAdapter<Size> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Size big_small = getItem(position);
-        View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
-        ImageView image = (ImageView)view.findViewById(R.id.size_image);
-        TextView name = (TextView)view.findViewById(R.id.size_name);
-        image.setImageResource(big_small.getImageId());
-        name.setText(big_small.getName());
+//        View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
+        View view;
+        ViewHolder viewHolder;
+        if (convertView == null){
+            view = LayoutInflater.from(getContext()).inflate(resourceId, null);
+            viewHolder = new ViewHolder();
+            viewHolder.image = (ImageView)view.findViewById(R.id.size_image);
+            viewHolder.name = (TextView)view.findViewById(R.id.size_name);
+            view.setTag(viewHolder);
+        }else {
+            view = convertView;
+            viewHolder = (ViewHolder)view.getTag();
+        }
+        viewHolder.image.setImageResource(big_small.getImageId());
+        viewHolder.name.setText(big_small.getName());
         return view;
+    }
+    class ViewHolder{
+        ImageView image;
+        TextView name;
     }
 }
